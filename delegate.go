@@ -16,6 +16,7 @@ func (d *delegate) NodeMeta(limit int) []byte {
 }
 
 func (d *delegate) NotifyMsg(nmsg []byte) {
+	fmt.Println("NotifyMsg")
 	if nmsg[0] != 'd' {
 		return
 	}
@@ -54,6 +55,7 @@ func (d *delegate) LocalState(join bool) []byte {
 }
 
 func (d *delegate) MergeRemoteState(buf []byte, join bool) {
+	log.Println("MergeRemoteState")
 	if len(buf) == 0 {
 		return
 	}
