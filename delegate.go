@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 
 	"github.com/hashicorp/memberlist"
@@ -16,7 +15,7 @@ func (d *delegate) NodeMeta(limit int) []byte {
 }
 
 func (d *delegate) NotifyMsg(nmsg []byte) {
-	fmt.Println("NotifyMsg")
+	log.Println("NotifyMsg")
 	if nmsg[0] != 'd' {
 		return
 	}
@@ -75,13 +74,13 @@ func (d *delegate) MergeRemoteState(buf []byte, join bool) {
 }
 
 func (d *delegate) NotifyJoin(n *memberlist.Node) {
-	fmt.Println(n.Name, " joined")
+	log.Println(n.Name, " joined")
 }
 
 func (d *delegate) NotifyLeave(n *memberlist.Node) {
-	fmt.Println(n.Name, " leave")
+	log.Println(n.Name, " leave")
 }
 
 func (d *delegate) NotifyUpdate(n *memberlist.Node) {
-	fmt.Println(n.Name, " update")
+	log.Println(n.Name, " update")
 }
